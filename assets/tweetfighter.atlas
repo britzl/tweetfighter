@@ -1,0 +1,49 @@
+images {
+  image: "/assets/images/transparent1px.png"
+}
+images {
+  image: "/assets/images/white1px.png"
+}
+images {
+  image: "/assets/images/tweet.png"
+}
+images {
+  image: "/assets/images/event_bg.png"
+}
+images {
+  image: "/assets/images/portrait1.png"
+}
+images {
+  image: "/assets/images/trump-arm.png"
+}
+images {
+  image: "/assets/images/BTN-TWEET.png"
+}
+images {
+  image: "/assets/images/BAR-BACK.png"
+}
+images {
+  image: "/assets/images/BAR-BLUE-9SLICE.png"
+}
+images {
+  image: "/assets/images/BAR-RED-9SLICE.png"
+}
+animations {
+  id: "tweet_click"
+  images {
+    image: "/assets/images/BTN-TWEET.png"
+  }
+  images {
+    image: "/assets/images/BTN-TWEET-pressed.png"
+  }
+  images {
+    image: "/assets/images/BTN-TWEET.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 2
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+margin: 0
+extrude_borders: 2
+inner_padding: 0

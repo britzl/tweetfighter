@@ -1,0 +1,167 @@
+local flow = require "ludobits.m.flow"
+local events = require "game.events"
+
+
+local world_position
+world_position = function(node, pos)
+	pos = pos or vmath.vector3()
+	local parent = gui.get_parent(node)
+	if parent then
+		return world_position(parent, pos + gui.get_position(node))
+	end
+	return pos
+end
+
+
+local function lerp(a, b, t)
+	return a + (b - a) * t
+end
+
+
+local function progressive(from, to, duration, cb)
+	flow(function()
+		local start = socket.gettime()
+		while true do
+			local now = socket.gettime()
+			local t = (now - start) / duration
+			if t > 1.0 then
+				break
+			end
+			local v = lerp(from, to, t)
+			cb(v)
+			flow.frames(1)
+		end
+		cb(to)
+	end)
+end
+
+local function countup(self, node, from, to, duration)
+	progressive(from, to, duration, function(v)
+		gui.set_text(node, ("%.1fK"):format(v / 1000))
+	end)
+end
+
+
+local function printout(self, node, message, duration)
+	progressive(1, #message, duration, function(v)
+		gui.set_text(node, message:sub(1, math.ceil(v)))
+	end)
+end
+
+
+local function hide_tweet(self, tweet_id)
+	local tweet = self.tweets[tweet_id]
+	gui.animate(tweet.root, gui.PROP_POSITION, tweet.position + tweet.hidden, gui.EASING_INQUAD, 1, 0.5)
+end
+
+
+local function show_tweet(self, tweet, message, duration, delay)
+	gui.set_text(tweet.comments, "-")
+	gui.set_text(tweet.retweets, "-")
+	gui.set_text(tweet.likes, "-")
+	gui.set_text(tweet.message, message)
+	gui.set_position(tweet.root, tweet.position + tweet.hidden)
+	gui.animate(tweet.root, gui.PROP_POSITION, tweet.position, gui.EASING_OUTQUAD, duration or 1, delay or 0)
+end
+
+
+local function new_event(self, event)
+	self.current_event = event
+	gui.set_text(self.event_message, "")
+	gui.play_flipbook(self.event_image, event.image)
+	gui.set_position(self.event_root, self.event_position + vmath.vector3(1000, 0, 0))
+	gui.animate(self.event_root, gui.PROP_POSITION, self.event_position, gui.EASING_OUTQUAD, 0.7, 0, function()
+		printout(self, self.event_message, event.message, 1)
+		for i=1,2 do
+			local tweet = self.tweets[i]
+			show_tweet(self, tweet, event.tweets[i].message, 1, 0.5)
+		end
+	end)
+end
+
+
+local function send_tweet(self, tweet_id)
+	msg.post(".", "release_input_focus")
+	local tweet = self.tweets[tweet_id]
+	local world_pos = world_position(tweet.button)
+	gui.animate(self.arm, gui.PROP_POSITION, world_pos, gui.EASING_INOUTQUAD, 1, 0, nil, gui.PLAYBACK_ONCE_PINGPONG)
+	gui.play_flipbook(tweet.button, hash("tweet_click"))
+	countup(self, tweet.comments, 0, math.random(10000, 200000), 1)
+	countup(self, tweet.retweets, 0, math.random(10000, 200000), 1)
+	countup(self, tweet.likes, 0, math.random(10000, 200000), 1)
+end
+
+
+function init(self)
+	self.values = { 100, 100, 100, 100 }
+	self.days = 0
+
+	self.events = events.new_game()
+
+	self.tweets = {
+		{
+			root = gui.get_node("tweet1/root"),
+			hidden = vmath.vector3(-1000, 0, 0),
+			position = gui.get_position(gui.get_node("tweet1/root")),
+			message = gui.get_node("tweet1/message"),
+			button = gui.get_node("tweet1/button"),
+			comments = gui.get_node("tweet1/comments"),
+			retweets = gui.get_node("tweet1/retweets"),
+			likes = gui.get_node("tweet1/likes"),
+		},
+		{
+			root = gui.get_node("tweet2/root"),
+			hidden = vmath.vector3(1000, 0, 0),
+			position = gui.get_position(gui.get_node("tweet2/root")),
+			message = gui.get_node("tweet2/message"),
+			button = gui.get_node("tweet2/button"),
+			comments = gui.get_node("tweet2/comments"),
+			retweets = gui.get_node("tweet2/retweets"),
+			likes = gui.get_node("tweet2/likes"),
+		},
+	}
+
+	self.event_root = gui.get_node("event")
+	self.event_position = gui.get_position(self.event_root)
+	self.event_image = gui.get_node("event_image")
+	self.event_message = gui.get_node("event_message")
+	self.arm = gui.get_node("arm")
+
+	for i=1,2 do
+		local tweet = self.tweets[i]
+		gui.set_position(tweet.root, tweet.position + tweet.hidden)
+	end
+				
+	msg.post(".", "acquire_input_focus")
+	msg.post("#", "new_event")
+end
+
+function update(self, dt)
+	flow.update(dt)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("new_event") then
+		local event = table.remove(self.events, 1)
+		new_event(self, event)
+	end
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("touch") and action.released then
+		if gui.pick_node(self.tweets[1].button, action.x, action.y) then
+			print("tweet1")
+			send_tweet(self, 1)
+			hide_tweet(self, 2)
+		elseif gui.pick_node(self.tweets[2].button, action.x, action.y) then
+			print("tweet2")
+			send_tweet(self, 2)
+			hide_tweet(self, 1)
+		end
+	end
+end
+
+function on_reload(self)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
