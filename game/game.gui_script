@@ -1,6 +1,9 @@
 local flow = require "ludobits.m.flow"
 local events = require "game.events"
 
+local MAX_VALUE = 10
+
+
 
 local world_position
 world_position = function(node, pos)
@@ -35,6 +38,7 @@ local function progressive(from, to, duration, cb)
 	end)
 end
 
+
 local function countup(self, node, from, to, duration)
 	progressive(from, to, duration, function(v)
 		gui.set_text(node, ("%.1fK"):format(v / 1000))
@@ -49,9 +53,17 @@ local function printout(self, node, message, duration)
 end
 
 
-local function hide_tweet(self, tweet_id)
-	local tweet = self.tweets[tweet_id]
-	gui.animate(tweet.root, gui.PROP_POSITION, tweet.position + tweet.hidden, gui.EASING_INQUAD, 1, 0.5)
+local function blink(self, node, count, interval)
+	timer.seconds(interval or 0.5, function()
+		gui.set_enabled(node, not gui.is_enabled(node))
+		if count >= 0 then
+			blink(self, node, count - 0.5, interval)
+		end
+	end)
+end
+
+local function hide_tweet(self, tweet, duration, delay)
+	gui.animate(tweet.root, gui.PROP_POSITION, tweet.position + tweet.hidden, gui.EASING_INQUAD, duration or 1, delay or 0)
 end
 
 
@@ -66,11 +78,13 @@ end
 
 
 local function new_event(self, event)
+	msg.post(".", "acquire_input_focus")
 	self.current_event = event
 	gui.set_text(self.event_message, "")
+	gui.set_text(self.event_messenger, event.messenger .. ":")
 	gui.play_flipbook(self.event_image, event.image)
 	gui.set_position(self.event_root, self.event_position + vmath.vector3(1000, 0, 0))
-	gui.animate(self.event_root, gui.PROP_POSITION, self.event_position, gui.EASING_OUTQUAD, 0.7, 0, function()
+	gui.animate(self.event_root, gui.PROP_POSITION, self.event_position, gui.EASING_OUTQUAD, 1, 0, function()
 		printout(self, self.event_message, event.message, 1)
 		for i=1,2 do
 			local tweet = self.tweets[i]
@@ -80,24 +94,79 @@ local function new_event(self, event)
 end
 
 
-local function send_tweet(self, tweet_id)
+local function hide_event(self, duration, delay, cb)
+	gui.animate(self.event_root, gui.PROP_POSITION, self.event_position - vmath.vector3(1000, 0, 0), gui.EASING_INQUAD, duration or 1, delay or 0, cb)
+end
+
+
+local function is_game_over(self)
+	for i = 1, 4 do
+		if self.values[i] == 0 then
+			return true
+		end
+	end
+	return false
+end
+
+local function update_values(self, change)
+	for i = 1, 4 do
+		if change[i] ~= 0 then
+			local v = self.values[i]
+			local value_before_change = v.value
+			v.value = v.value + change[i]
+			v.value = math.min(v.value, MAX_VALUE)
+			v.value = math.max(v.value, 0)
+			if value_before_change ~= v.value then
+				local size = vmath.vector3(v.size)
+				local ratio = v.value / MAX_VALUE
+				size.x = size.x * ratio
+				gui.set_size(v.bar, size)
+				gui.play_flipbook(v.bar, ratio > 0.2 and hash("BAR-BLUE-9SLICE") or hash("BAR-RED-9SLICE"))
+				blink(self, v.title, 3, 0.5)
+			end
+		end
+	end
+end
+
+
+local function send_tweet(self, tweet_id, hide_id)
 	msg.post(".", "release_input_focus")
 	local tweet = self.tweets[tweet_id]
 	local world_pos = world_position(tweet.button)
-	gui.animate(self.arm, gui.PROP_POSITION, world_pos, gui.EASING_INOUTQUAD, 1, 0, nil, gui.PLAYBACK_ONCE_PINGPONG)
-	gui.play_flipbook(tweet.button, hash("tweet_click"))
-	countup(self, tweet.comments, 0, math.random(10000, 200000), 1)
-	countup(self, tweet.retweets, 0, math.random(10000, 200000), 1)
-	countup(self, tweet.likes, 0, math.random(10000, 200000), 1)
+	local arm_pos = gui.get_position(self.arm)
+	gui.animate(self.arm, gui.PROP_POSITION, world_pos, gui.EASING_OUTQUAD, 0.5, 0, function()
+		gui.animate(self.arm, gui.PROP_POSITION, arm_pos, gui.EASING_INQUAD, 0.5, 0.25)
+		gui.play_flipbook(tweet.button, hash("tweet_click"))
+		timer.seconds(0.25, function()
+			hide_tweet(self, self.tweets[hide_id], 1, 0)
+			countup(self, tweet.comments, 0, math.random(10000, 200000), 1)
+			countup(self, tweet.retweets, 0, math.random(10000, 200000), 1)
+			countup(self, tweet.likes, 0, math.random(10000, 200000), 1)
+			update_values(self, self.current_event.tweets[tweet_id].values)
+			hide_tweet(self, tweet, 1, 1)
+			hide_event(self, 1, 1, function()
+				msg.post("#", "new_event")
+			end)
+		end)
+	end, gui.PLAYBACK_ONCE_FORWARD)
 end
 
 
 function init(self)
-	self.values = { 100, 100, 100, 100 }
 	self.days = 0
 
 	self.events = events.new_game()
 
+	self.values = {}
+	for i=1,4 do
+		self.values[i] = {
+			value = MAX_VALUE,
+			title = gui.get_node("value" .. i .. "/title"),
+			bar = gui.get_node("value" .. i .. "/bar"),
+			size = gui.get_size(gui.get_node("value" .. i .. "/bar_bg")),
+		}
+	end
+	
 	self.tweets = {
 		{
 			root = gui.get_node("tweet1/root"),
@@ -125,14 +194,15 @@ function init(self)
 	self.event_position = gui.get_position(self.event_root)
 	self.event_image = gui.get_node("event_image")
 	self.event_message = gui.get_node("event_message")
+	self.event_messenger = gui.get_node("event_messenger")
 	self.arm = gui.get_node("arm")
 
 	for i=1,2 do
 		local tweet = self.tweets[i]
 		gui.set_position(tweet.root, tweet.position + tweet.hidden)
 	end
-				
-	msg.post(".", "acquire_input_focus")
+
+	math.randomseed(os.time())
 	msg.post("#", "new_event")
 end
 
@@ -142,7 +212,9 @@ end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("new_event") then
-		local event = table.remove(self.events, 1)
+		--local event = table.remove(self.events, 1)
+		local event_id = math.random(1, #self.events)
+		local event = self.events[event_id]
 		new_event(self, event)
 	end
 end
@@ -151,12 +223,10 @@ function on_input(self, action_id, action)
 	if action_id == hash("touch") and action.released then
 		if gui.pick_node(self.tweets[1].button, action.x, action.y) then
 			print("tweet1")
-			send_tweet(self, 1)
-			hide_tweet(self, 2)
+			send_tweet(self, 1, 2)
 		elseif gui.pick_node(self.tweets[2].button, action.x, action.y) then
 			print("tweet2")
-			send_tweet(self, 2)
-			hide_tweet(self, 1)
+			send_tweet(self, 2, 1)
 		end
 	end
 end
