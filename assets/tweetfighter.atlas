@@ -37,6 +37,24 @@ images {
 images {
   image: "/assets/images/BAR-GREEN-9SLICE.png"
 }
+images {
+  image: "/assets/images/bg.png"
+}
+images {
+  image: "/assets/images/EAGLE.png"
+}
+images {
+  image: "/assets/images/LOGO.png"
+}
+images {
+  image: "/assets/images/start.png"
+}
+images {
+  image: "/assets/images/TEXT-BOTTOM.png"
+}
+images {
+  image: "/assets/images/arrow.png"
+}
 animations {
   id: "tweet_click"
   images {

@@ -18,7 +18,7 @@ end
 function on_message(self, message_id, message, sender)
 	print("on_message", message_id)
 	if message_id == hash("start") then
-		monarch.show(hash("game"))
+		monarch.show(hash("title"))
 	end
 end
 

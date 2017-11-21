@@ -1,0 +1,8 @@
+function init(self)
+	self.time = vmath.vector4()
+end
+
+function update(self, dt)
+	self.time.x = self.time.x + dt
+	sprite.set_constant("#sprite", "time", self.time)
+end

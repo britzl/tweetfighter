@@ -30,6 +30,11 @@ instances {
       value: "FIXE_ZOOM_2"
       type: PROPERTY_TYPE_HASH
     }
+    properties {
+      id: "enabled"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
   }
   scale3 {
     x: 1.0
@@ -132,7 +137,7 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "menu"
+  id: "title"
   data: "components {\n"
   "  id: \"screen\"\n"
   "  component: \"/monarch/screen.script\"\n"
@@ -149,14 +154,14 @@ embedded_instances {
   "  }\n"
   "  properties {\n"
   "    id: \"screen_id\"\n"
-  "    value: \"menu\"\n"
+  "    value: \"title\"\n"
   "    type: PROPERTY_TYPE_HASH\n"
   "  }\n"
   "}\n"
   "embedded_components {\n"
   "  id: \"collectionproxy\"\n"
   "  type: \"collectionproxy\"\n"
-  "  data: \"collection: \\\"/menu/menu.collection\\\"\\n"
+  "  data: \"collection: \\\"/title/title.collection\\\"\\n"
   "exclude: false\\n"
   "\"\n"
   "  position {\n"
