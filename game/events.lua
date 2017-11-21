@@ -3,7 +3,7 @@ local M = {}
 
 local events = {
 	{
-		image = { "portrait1" },
+		messenger_type = "MILITARY",
 		messenger = { "Col. Dwayne Ronson", "Col. Sanders" },
 		message = {
 			"Sir, Pyongyang just launched a long-distance nucular missile test. What is your response?",
@@ -27,7 +27,7 @@ local events = {
 		},
 	},
 	{
-		image = { "portrait1" },
+		messenger_type = "CIVILIAN",
 		messenger = { "Press secretary" },
 		message = {
 			"The GOP has proposed a bill to stop gay marriage, what's your stance on the question?",
@@ -49,7 +49,7 @@ local events = {
 		},
 	},
 	{
-		image = { "portrait1" },
+		messenger_type = "CIVILIAN",
 		messenger = { "Senator Ted Cruz" },
 		message = {
 			"Trump & Rubio are w/Obama on gay marriage",
@@ -70,7 +70,7 @@ local events = {
 		},
 	},
 	{
-		image = { "portrait1" },
+		messenger_type = "CIVILIAN",
 		messenger = { "Press secretary" },
 		message = {
 			"Sir, I've drawn up plans for a statue of General Robert E. Lee holding the severed head of Abraham Lincoln—do you wish to have it built in the White House Gardens?",
@@ -91,7 +91,7 @@ local events = {
 		},
 	},
 	{
-	    image = { "portrait1" },
+		messenger_type = "CIVILIAN",
 	    messenger = { "Senior Wall Engineer" },
 	    message = {
 	        "Sir, the plans for constructing The Wall are ready! What do you say to your followers?",
@@ -112,7 +112,7 @@ local events = {
 	    },
 	},
 	{
-	    image = { "portrait1" },
+		messenger_type = "CIVILIAN",
 	    messenger = { "Assistant" },
 	    message = {
 	        "Sir, the new Al Gore movie is premiering tomorrow. What is your review?",
@@ -133,7 +133,7 @@ local events = {
 	    },
 	},
 	{
-	    image = { "portrait1" },
+		messenger_type = "CIVILIAN",
 	    messenger = { "Press secretary" },
 	    message = {
 	        "Sir, the media wants a response on your latest comments on the drone strikes on Agrabah.",
@@ -154,7 +154,7 @@ local events = {
 	    },
 	},
 	{
-	    image = { "portrait1" },
+		messenger_type = "CIVILIAN",
 	    messenger = { "John Sanchez, party member" },
 	    message = {
 	        "The GOP has proposed a bill to ban women's soccer, what's your stance on the question?",
@@ -175,7 +175,7 @@ local events = {
 	    },
 	},
 	{
-	    image = { "portrait1" },
+		messenger_type = "CIVILIAN",
 	    messenger = { "Press secretary" },
 	    message = {
 	        "Sir, Kanye West rhymed \"Trump\" with \"Take a dump\" on his latest song. What do you say?",
@@ -196,7 +196,7 @@ local events = {
 	    },
 	},
 	{
-	    image = { "portrait1" },
+		messenger_type = "CIVILIAN",
 	    messenger = { "Press secretary" },
 	    message = {
 	        "Sir, a hurricane has hit Puerto Rico with devastating effects – what is your response?",
@@ -217,7 +217,7 @@ local events = {
 	    },
 	},
 	{
-	    image = { "portrait1" },
+		messenger_type = "CIVILIAN",
 	    messenger = { "Press secretary" },
 	    message = {
 	        "Sir, eighty-five women have released statements claiming you have assaulted them. What do you say?",
@@ -238,7 +238,7 @@ local events = {
 	    },
 	},
 	{
-	    image = { "portrait1" },
+		messenger_type = "CIVILIAN",
 	    messenger = { "Press secretary" },
 	    message = {
 	        "More NFL players are kneeling during the national anthem. What do you want to say to them?",
@@ -259,7 +259,7 @@ local events = {
 	    },
 	},
 	{
-	    image = { "portrait1" },
+		messenger_type = "CIVILIAN",
 	    messenger = { "Press secretary" },
 	    message = {
 	        "Our envoy in China wants you to ease up a little on your \"Rocket Man\" tweets – it hurts our relations with China",
