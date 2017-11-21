@@ -55,6 +55,171 @@ images {
 images {
   image: "/assets/images/arrow.png"
 }
+images {
+  image: "/assets/images/BG-1.png"
+}
+images {
+  image: "/assets/images/HAIR/_0000_HAIR-SHORT-BROWN.png"
+}
+images {
+  image: "/assets/images/HAIR/_0001_HAIR-SHORT-BLONDE.png"
+}
+images {
+  image: "/assets/images/HAIR/_0002_HAIR-SHORT-WHITE.png"
+}
+images {
+  image: "/assets/images/HAIR/_0003_HAIR-SHORT-BLACK.png"
+}
+images {
+  image: "/assets/images/HAIR/_0004_HAIR-SHORT-GRAY.png"
+}
+images {
+  image: "/assets/images/HAIR/_0005_HAIR-GUILE-BROWN.png"
+}
+images {
+  image: "/assets/images/HAIR/_0006_HAIR-GUILE-BLONDE.png"
+}
+images {
+  image: "/assets/images/HAIR/_0007_HAIR-GUILE-WHITE.png"
+}
+images {
+  image: "/assets/images/HAIR/_0008_HAIR-GUILE-BLACK.png"
+}
+images {
+  image: "/assets/images/HAIR/_0009_HAIR-GUILE-GRAY.png"
+}
+images {
+  image: "/assets/images/HAIR/_0010_HAIR-TRUMP-BROWN.png"
+}
+images {
+  image: "/assets/images/HAIR/_0011_HAIR-TRUMP-BLONDE.png"
+}
+images {
+  image: "/assets/images/HAIR/_0012_HAIR-TRUMP-WHITE.png"
+}
+images {
+  image: "/assets/images/HAIR/_0013_HAIR-TRUMP-BLACK.png"
+}
+images {
+  image: "/assets/images/HAIR/_0014_HAIR-TRUMP-GRAY.png"
+}
+images {
+  image: "/assets/images/HAIR/_0015_HAIR-BEARD-ONLY-BROWN.png"
+}
+images {
+  image: "/assets/images/HAIR/_0016_HAIR-BEARD-ONLY-BLONDE.png"
+}
+images {
+  image: "/assets/images/HAIR/_0017_HAIR-BEARD-ONLY-WHITE.png"
+}
+images {
+  image: "/assets/images/HAIR/_0018_HAIR-BEARD-ONLY-BLACK.png"
+}
+images {
+  image: "/assets/images/HAIR/_0019_HAIR-BEARD-ONLY-GRAY.png"
+}
+images {
+  image: "/assets/images/HAIR/_0020_HAIR-BEARD-BROWN.png"
+}
+images {
+  image: "/assets/images/HAIR/_0021_HAIR-BEARD-BLONDE.png"
+}
+images {
+  image: "/assets/images/HAIR/_0022_HAIR-BEARD-WHITE.png"
+}
+images {
+  image: "/assets/images/HAIR/_0023_HAIR-BEARD-BLACK.png"
+}
+images {
+  image: "/assets/images/HAIR/_0024_HAIR-BEARD-GRAY.png"
+}
+images {
+  image: "/assets/images/HAIR/_0025_HAIR-PROPER-BROWN.png"
+}
+images {
+  image: "/assets/images/HAIR/_0026_HAIR-PROPER-BLONDE.png"
+}
+images {
+  image: "/assets/images/HAIR/_0027_HAIR-PROPER-WHITE.png"
+}
+images {
+  image: "/assets/images/HAIR/_0028_HAIR-PROPER-BLACK.png"
+}
+images {
+  image: "/assets/images/HAIR/_0029_HAIR-PROPER-GRAY.png"
+}
+images {
+  image: "/assets/images/HAIR/_0030_HAIR-OLD-2-BROWN.png"
+}
+images {
+  image: "/assets/images/HAIR/_0031_HAIR-OLD-2-BLONDE.png"
+}
+images {
+  image: "/assets/images/HAIR/_0032_HAIR-OLD-2-WHITE.png"
+}
+images {
+  image: "/assets/images/HAIR/_0033_HAIR-OLD-2-BLACK.png"
+}
+images {
+  image: "/assets/images/HAIR/_0034_HAIR-OLD-2-GRAY.png"
+}
+images {
+  image: "/assets/images/HAIR/_0035_HAIR-OLD-1-BROWN.png"
+}
+images {
+  image: "/assets/images/HAIR/_0036_HAIR-OLD-1-BLONDE.png"
+}
+images {
+  image: "/assets/images/HAIR/_0037_HAIR-OLD-1-WHITE.png"
+}
+images {
+  image: "/assets/images/HAIR/_0038_HAIR-OLD-1-BLACK.png"
+}
+images {
+  image: "/assets/images/HAIR/_0039_HAIR-OLD-1-GRAY.png"
+}
+images {
+  image: "/assets/images/HEAD/_0050_FACE-4.png"
+}
+images {
+  image: "/assets/images/HEAD/_0051_FACE-3.png"
+}
+images {
+  image: "/assets/images/HEAD/_0052_FACE-2.png"
+}
+images {
+  image: "/assets/images/HEAD/_0053_FACE-1.png"
+}
+images {
+  image: "/assets/images/SUIT/_0044_SUIT-ARMY.png"
+}
+images {
+  image: "/assets/images/SUIT/_0045_SUIT-BEIGE.png"
+}
+images {
+  image: "/assets/images/SUIT/_0046_SUIT-GRAY-3.png"
+}
+images {
+  image: "/assets/images/SUIT/_0047_SUIT-GRAY-1.png"
+}
+images {
+  image: "/assets/images/SUIT/_0048_SUIT-GRAY-2.png"
+}
+images {
+  image: "/assets/images/SUIT/_0049_SUIT-NAVY.png"
+}
+images {
+  image: "/assets/images/TIE/_0040_TIE-GREEN.png"
+}
+images {
+  image: "/assets/images/TIE/_0041_TIE-BLACK.png"
+}
+images {
+  image: "/assets/images/TIE/_0042_TIE-BLUE.png"
+}
+images {
+  image: "/assets/images/TIE/_0043_TIE-RED.png"
+}
 animations {
   id: "tweet_click"
   images {
