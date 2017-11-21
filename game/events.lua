@@ -1,6 +1,53 @@
 local M = {}
 
 
+local intro_events = {
+	{
+		messenger_type = "CIVILIAN",
+		messenger = { "Advisor" },
+		message = {
+			"Sir! As per your request, we've arranged so that the only communication you have with the world is through your Twitter feed. What do you think?",
+		},
+		tweets = {
+			{
+				message = {
+					"This is the BEST thing I've done! Not even Fox gets an interview!",
+				},
+				values = { 0, -1, 0, 0 },
+			},
+			{
+				message = {
+					"Feels GREAT to never speak to media again! Other politicians are stupid for not doing this!",
+				},
+				values = { 0, 0, -1, 0 },
+			}
+		},
+	},
+	{
+		messenger_type = "CIVILIAN",
+		messenger = { "Advisor" },
+		message = {
+			"Uh-oh, that made some people angry... Make sure none of your trust levels reach 0, or you'll have a hard time remaining president.",
+		},
+		tweets = {
+			{
+				message = {
+					"Don't worry folks, I am the GREATEST president in American history. #Trump2020 #RocketManSucks",
+				},
+				values = { -1, 1, 0, 0 },
+			},
+			{
+				message = {
+					"As long as Republican don't stab my back like they did with Obamacare, it's #Trump2024 all the way!",
+				},
+				values = { 0, -1, -1, 0 },
+			}
+		},
+	},
+}
+
+
+
 local events = {
 	{
 		messenger_type = "MILITARY",
@@ -103,12 +150,19 @@ local events = {
 	            },
 	            values = { 0, 1, 0, -1 },
 	        },
-	        {
-	            message = {
-	                "The wall is VERY costly! We will build A SMALL MOAT instead!",
-	            },
-	            values = { 1, -1, -1, 1 },
-	        }
+			{
+				message = {
+					"The wall is VERY costly! We will build A SMALL MOAT instead!",
+				},
+				values = { 1, -1, -1, 1 },
+			},
+			{
+				message = {
+					"We must have THE WALL. Mexico will pay for it!",
+					"Mexico will pay for the wall - 100%! #MakeAmericaGreatAgain #ImWithYou",
+				},
+				values = { 0, 1, -1, 1 },
+			}
 	    },
 	},
 	{
@@ -118,13 +172,26 @@ local events = {
 	        "Sir, the new Al Gore movie is premiering tomorrow. What is your review?",
 	    },
 	    tweets = {
-	        {
-	            message = {
-	                "Just saw SORE LOSER Al Gores FAKE movie. More like AL SNORE!",
-	            },
-	            values = { 1, 1, 0, 0 },
-	        },
-	        {
+			{
+				message = {
+					"Just saw SORE LOSER Al Gores FAKE movie. More like AL SNORE!",
+				},
+				values = { 1, 1, 0, 0 },
+			},
+			{
+				message = {
+					"Obama said that 'global warming is a fact.' Sure, about as factual as 'if you like your healthcare, you can keep it.'",
+				},
+				values = { 1, 1, -1, 0 },
+			},
+			{
+				message = {
+					"Any and all weather events are used by the GLOBAL WARMING HOAXSTERS to justify higher taxes to save our planet! They don't believe it $$$$!",
+					"This very expensive GLOBAL WARMING bullshit has got to stop",
+				},
+				values = { 1, 1, 0, 1 },
+			},
+			{
 	            message = {
 	                "Just saw a GREAT movie and I will STOP GLOBAL WARMING. Crying penguins and polar bears – it's just SAD!",
 	            },
@@ -168,7 +235,8 @@ local events = {
 	        },
 	        {
 	            message = {
-	                "BEAUTIFUL women, but they'd look better playing TENNIS. #BanWomensSoccer #WrongBalls",
+					"BEAUTIFUL women, but they'd look better playing TENNIS. #BanWomensSoccer #WrongBalls",
+					"Maybe I'm old fashioned but I don't like seeing women playing soccer #OldSchool.",
 	            },
 	            values = { 0, 1, -1, 0 },
 	        }
@@ -197,7 +265,7 @@ local events = {
 	},
 	{
 		messenger_type = "CIVILIAN",
-	    messenger = { "Press secretary" },
+		messenger = { "Secretary of State" },
 	    message = {
 	        "Sir, a hurricane has hit Puerto Rico with devastating effects – what is your response?",
 	    },
@@ -205,12 +273,16 @@ local events = {
 	        {
 	            message = {
 	                "Won't send funds to Puerto Rico. It's not like it was a real catastrophe – like Katrina!",
-	            },
+					"Do you believe @algore is blaming global warming for the hurricane? I blame him!",
+					"We spend billions of dollars helping nations all over the World but with hurricane Sandy not one nation helped us!",
+					"To the people of Puerto Rico: Do not believe the #FakeNews!",
+					"I will be going to Puerto Rico on Tuesday with Melania to work on my tan. Will hopefully be able to stop at the U.S. Virgin Islands for drinks!",
+				},
 	            values = { 0, 1, -1, 0 },
 	        },
 	        {
 	            message = {
-	                "Many people in Puerto Rico are GOOD people – I will personally travel there and hand out toilet paper.",
+					"Many people in Puerto Rico are GOOD people – I will personally travel there and hand out toilet paper.",
 	            },
 	            values = { 0, -1, 1, 0 },
 	        }
@@ -225,7 +297,7 @@ local events = {
 	    tweets = {
 	        {
 	            message = {
-	                "What happens in Vegas should stay in Vegas! #grabbedembythepussy",
+					"What happens in Vegas should stay in Vegas! #grabbedembythepussy",
 	            },
 	            values = { 0, 1, -1, -1 },
 	        },
@@ -292,6 +364,9 @@ function M.new_game()
 		local a = math.random(1, #ev)
 		local b = math.random(1, #ev)
 		ev[a], ev[b] = ev[b], ev[a]
+	end
+	for i=1,#intro_events do
+		table.insert(ev, i, intro_events[i])
 	end
 	return ev
 end
