@@ -243,7 +243,7 @@ nodes {
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
   parent: "root"
-  layer: "text_small"
+  layer: "text_grey_small"
   inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
@@ -306,7 +306,7 @@ nodes {
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
   parent: "root"
-  layer: "text_small"
+  layer: "text_grey_small"
   inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
@@ -369,7 +369,7 @@ nodes {
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
   parent: "root"
-  layer: "text_small"
+  layer: "text_grey_small"
   inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
@@ -385,7 +385,7 @@ layers {
   name: "text_black"
 }
 layers {
-  name: "text_small"
+  name: "text_grey_small"
 }
 material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT

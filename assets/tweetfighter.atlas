@@ -28,6 +28,15 @@ images {
 images {
   image: "/assets/images/speechBubble-back.png"
 }
+images {
+  image: "/assets/images/topbar.png"
+}
+images {
+  image: "/assets/images/lightgrey1px.png"
+}
+images {
+  image: "/assets/images/BAR-GREEN-9SLICE.png"
+}
 animations {
   id: "tweet_click"
   images {

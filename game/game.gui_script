@@ -3,6 +3,8 @@ local events = require "game.events"
 
 local MAX_VALUE = 10
 
+local START_YEAR = 2017
+local MONTHS = { "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" }
 
 
 local world_position
@@ -21,7 +23,7 @@ local function lerp(a, b, t)
 end
 
 
-local function progressive(from, to, duration, cb)
+local function progressive(from, to, duration, on_change, on_done)
 	flow(function()
 		local start = socket.gettime()
 		while true do
@@ -31,10 +33,11 @@ local function progressive(from, to, duration, cb)
 				break
 			end
 			local v = lerp(from, to, t)
-			cb(v)
+			on_change(v)
 			flow.frames(1)
 		end
-		cb(to)
+		on_change(to)
+		if on_done then on_done() end
 	end)
 end
 
@@ -62,6 +65,7 @@ local function blink(self, node, count, interval)
 	end)
 end
 
+
 local function hide_tweet(self, tweet, duration, delay)
 	gui.animate(tweet.root, gui.PROP_POSITION, tweet.position + tweet.hidden, gui.EASING_INQUAD, duration or 1, delay or 0)
 end
@@ -77,9 +81,20 @@ local function show_tweet(self, tweet, message, duration, delay)
 end
 
 
-local function new_event(self, event)
+local function new_month(self, event)
 	msg.post(".", "acquire_input_focus")
 	self.current_event = event
+	self.months = self.months + 1
+	if self.months == 1 + (12 * 4) then
+		print("First period")
+	elseif self.months == 1 + (12 * 4 * 4) then
+		print("Second period")
+	end
+
+	local year = START_YEAR + math.floor((self.months - 1) / 12)
+	local month = 1 + ((self.months - 1) % 12)
+	gui.set_text(self.date, ("%s\n%d"):format(MONTHS[month], year))
+	
 	gui.set_text(self.event_message, "")
 	gui.set_text(self.event_messenger, event.messenger .. ":")
 	gui.play_flipbook(self.event_image, event.image)
@@ -108,22 +123,33 @@ local function is_game_over(self)
 	return false
 end
 
+
+
+local function change_value(self, value, change)
+	local value_before_change = value.value
+	value.value = value.value + change
+	value.value = math.min(value.value, MAX_VALUE)
+	value.value = math.max(value.value, 0)
+		
+	if value_before_change ~= value.value then
+		blink(self, value.title, 2, 0.5)
+		progressive(value_before_change, value.value, 1, function(v)
+			local size = vmath.vector3(value.size)
+			local ratio = v / MAX_VALUE
+			size.x = size.x * ratio
+			gui.set_size(value.bar, size)
+			gui.play_flipbook(value.bar, change > 0 and hash("BAR-GREEN-9SLICE") or hash("BAR-RED-9SLICE"))
+		end, function()
+			gui.play_flipbook(value.bar, hash("BAR-BLUE-9SLICE"))
+		end)
+	end
+end
+
+
 local function update_values(self, change)
 	for i = 1, 4 do
 		if change[i] ~= 0 then
-			local v = self.values[i]
-			local value_before_change = v.value
-			v.value = v.value + change[i]
-			v.value = math.min(v.value, MAX_VALUE)
-			v.value = math.max(v.value, 0)
-			if value_before_change ~= v.value then
-				local size = vmath.vector3(v.size)
-				local ratio = v.value / MAX_VALUE
-				size.x = size.x * ratio
-				gui.set_size(v.bar, size)
-				gui.play_flipbook(v.bar, ratio > 0.2 and hash("BAR-BLUE-9SLICE") or hash("BAR-RED-9SLICE"))
-				blink(self, v.title, 3, 0.5)
-			end
+			change_value(self, self.values[i], change[i])
 		end
 	end
 end
@@ -134,9 +160,15 @@ local function send_tweet(self, tweet_id, hide_id)
 	local tweet = self.tweets[tweet_id]
 	local world_pos = world_position(tweet.button)
 	local arm_pos = gui.get_position(self.arm)
-	gui.animate(self.arm, gui.PROP_POSITION, world_pos, gui.EASING_OUTQUAD, 0.5, 0, function()
-		gui.animate(self.arm, gui.PROP_POSITION, arm_pos, gui.EASING_INQUAD, 0.5, 0.25)
+	world_pos.x = arm_pos.x
+	arm_pos.y = world_pos.y - 1000
+	gui.set_position(self.arm, arm_pos)
+	gui.animate(self.arm, gui.PROP_POSITION, world_pos, gui.EASING_OUTQUAD, 1, 0, function()
+		-- hide the arm again
+		gui.animate(self.arm, gui.PROP_POSITION, arm_pos, gui.EASING_INQUAD, 1, 0.25)
+		-- play the button click animation
 		gui.play_flipbook(tweet.button, hash("tweet_click"))
+		-- wait a while and then hide tweet, count up likes, update values etc
 		timer.seconds(0.25, function()
 			hide_tweet(self, self.tweets[hide_id], 1, 0)
 			countup(self, tweet.comments, 0, math.random(10000, 200000), 1)
@@ -145,15 +177,18 @@ local function send_tweet(self, tweet_id, hide_id)
 			update_values(self, self.current_event.tweets[tweet_id].values)
 			hide_tweet(self, tweet, 1, 1)
 			hide_event(self, 1, 1, function()
-				msg.post("#", "new_event")
+				msg.post("#", "new_month")
 			end)
+			if is_game_over(self) then
+				print("game over")
+			end
 		end)
 	end, gui.PLAYBACK_ONCE_FORWARD)
 end
 
 
 function init(self)
-	self.days = 0
+	self.months = 0
 
 	self.events = events.new_game()
 
@@ -196,6 +231,7 @@ function init(self)
 	self.event_message = gui.get_node("event_message")
 	self.event_messenger = gui.get_node("event_messenger")
 	self.arm = gui.get_node("arm")
+	self.date = gui.get_node("date")
 
 	for i=1,2 do
 		local tweet = self.tweets[i]
@@ -203,7 +239,9 @@ function init(self)
 	end
 
 	math.randomseed(os.time())
-	msg.post("#", "new_event")
+	msg.post("#", "new_month")
+	msg.post("@render:", "clear_color", { color = vmath.vector4(0x19/256, 0x19/256, 0x19/256, 1.0) })
+	
 end
 
 function update(self, dt)
@@ -211,11 +249,11 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("new_event") then
+	if message_id == hash("new_month") then
 		--local event = table.remove(self.events, 1)
 		local event_id = math.random(1, #self.events)
 		local event = self.events[event_id]
-		new_event(self, event)
+		new_month(self, event)
 	end
 end
 

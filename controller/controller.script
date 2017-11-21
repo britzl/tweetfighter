@@ -3,7 +3,6 @@ local monarch = require "monarch.monarch"
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	msg.post("#", "start")
-	msg.post("@render:", "clear_color", { color = vmath.vector4(0x04/256, 0x3c/256, 0x5e/256, 1.0) })
 end
 
 function final(self)
