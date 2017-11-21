@@ -81,6 +81,10 @@ local function show_tweet(self, tweet, message, duration, delay)
 end
 
 
+local function random(list)
+	return list[math.random(1, #list)]
+end
+
 local function new_month(self, event)
 	msg.post(".", "acquire_input_focus")
 	self.current_event = event
@@ -90,20 +94,19 @@ local function new_month(self, event)
 	elseif self.months == 1 + (12 * 4 * 4) then
 		print("Second period")
 	end
-
 	local year = START_YEAR + math.floor((self.months - 1) / 12)
 	local month = 1 + ((self.months - 1) % 12)
 	gui.set_text(self.date, ("%s\n%d"):format(MONTHS[month], year))
 	
 	gui.set_text(self.event_message, "")
-	gui.set_text(self.event_messenger, event.messenger .. ":")
-	gui.play_flipbook(self.event_image, event.image)
+	gui.set_text(self.event_messenger, random(event.messenger) .. ":")
+	gui.play_flipbook(self.event_image, random(event.image))
 	gui.set_position(self.event_root, self.event_position + vmath.vector3(1000, 0, 0))
 	gui.animate(self.event_root, gui.PROP_POSITION, self.event_position, gui.EASING_OUTQUAD, 1, 0, function()
-		printout(self, self.event_message, event.message, 1)
+	printout(self, self.event_message, random(event.message), 1)
 		for i=1,2 do
 			local tweet = self.tweets[i]
-			show_tweet(self, tweet, event.tweets[i].message, 1, 0.5)
+			show_tweet(self, tweet, random(event.tweets[i].message), 1, 0.5)
 		end
 	end)
 end
