@@ -220,6 +220,18 @@ images {
 images {
   image: "/assets/images/TIE/_0043_TIE-RED.png"
 }
+images {
+  image: "/assets/images/BTN-PLAYAGAIN-1.png"
+}
+images {
+  image: "/assets/images/BTN-PLAYAGAIN-PRESSED.png"
+}
+images {
+  image: "/assets/images/gameover-back.png"
+}
+images {
+  image: "/assets/images/GAME-OVER.png"
+}
 animations {
   id: "tweet_click"
   images {
@@ -227,6 +239,19 @@ animations {
   }
   images {
     image: "/assets/images/BTN-TWEET.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 4
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "playagain_click"
+  images {
+    image: "/assets/images/BTN-PLAYAGAIN-PRESSED.png"
+  }
+  images {
+    image: "/assets/images/BTN-PLAYAGAIN-1.png"
   }
   playback: PLAYBACK_ONCE_FORWARD
   fps: 4

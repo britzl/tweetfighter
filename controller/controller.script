@@ -5,29 +5,9 @@ function init(self)
 	msg.post("#", "start")
 end
 
-function final(self)
-	-- Add finalization code here
-	-- Remove this function if not needed
-end
-
-function update(self, dt)
-	-- Add update code here
-	-- Remove this function if not needed
-end
-
 function on_message(self, message_id, message, sender)
-	print("on_message", message_id)
 	if message_id == hash("start") then
 		monarch.show(hash("title"))
+		--monarch.show(hash("gameover"), nil, { money = true })
 	end
-end
-
-function on_input(self, action_id, action)
-	-- Add input-handling code here
-	-- Remove this function if not needed
-end
-
-function on_reload(self)
-	-- Add reload-handling code here
-	-- Remove this function if not needed
 end
