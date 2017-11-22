@@ -124,61 +124,6 @@ nodes {
 }
 nodes {
   position {
-    x: 0.0
-    y: 69.5
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 144.0
-    y: 16.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: "tweetfighter/GAME-OVER"
-  id: "gameover"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  parent: "bg"
-  layer: "below"
-  inherit_alpha: true
-  slice9 {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  template_node_child: false
-  size_mode: SIZE_MODE_AUTO
-}
-nodes {
-  position {
     x: 81.5
     y: -69.5
     z: 0.0
@@ -265,7 +210,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "Oh no! You\'ve enraged Kim Jong-Un enough to start a nuclear war!"
+  text: "Amazing! You\'ve stayed in office for two consecutive terms. No one in world believed this could happen, not even you! Now go play some golf!"
   font: "tweetfont"
   id: "text"
   xanchor: XANCHOR_NONE

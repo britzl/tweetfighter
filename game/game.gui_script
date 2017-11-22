@@ -190,6 +190,7 @@ local function send_tweet(self, tweet_id, hide_id)
 			update_values(self, self.current_event.tweets[tweet_id].values)
 			hide_tweet(self, tweet, 1, 1.1)
 			hide_event(self, 1, 1, function()
+				
 				if is_game_over(self) then
 					if self.values[1].value <= 0 then
 						monarch.show(hash("gameover"), nil, { north_korea = true })
@@ -200,11 +201,11 @@ local function send_tweet(self, tweet_id, hide_id)
 					elseif self.values[4].value <= 0 then
 						monarch.show(hash("gameover"), nil, { money = true })
 					end
-					return
 				elseif self.months == (12 * 4) then
-					print("First period")
+					monarch.show(hash("popup"), nil, { text = "Congratulations Mr. President! You've managed to stay in office for an entire term. Can you stay another four years?" })
+					msg.post("#", "new_month")
 				elseif self.months == (12 * 4 * 4) then
-					print("Second period")
+					monarch.show(hash("gamewon"))
 				else
 					msg.post("#", "new_month")
 				end
@@ -280,7 +281,14 @@ end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("new_month") then
-		local event = self.events[1 + (self.months % #self.events)]
+		local event
+		-- remove intro events
+		if self.months <= 1 then
+			event = table.remove(self.events, 1)
+		-- loop through other events
+		else
+			event = self.events[1 + (self.months % #self.events)]
+		end
 		util.shuffle(event.tweets)
 		new_month(self, {
 			messenger_name = util.random(event.messenger),

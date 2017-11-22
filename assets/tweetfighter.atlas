@@ -232,6 +232,12 @@ images {
 images {
   image: "/assets/images/GAME-OVER.png"
 }
+images {
+  image: "/assets/images/BTN-PRESSED.png"
+}
+images {
+  image: "/assets/images/BTN.png"
+}
 animations {
   id: "tweet_click"
   images {
@@ -252,6 +258,19 @@ animations {
   }
   images {
     image: "/assets/images/BTN-PLAYAGAIN-1.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 4
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "button_click"
+  images {
+    image: "/assets/images/BTN-PRESSED.png"
+  }
+  images {
+    image: "/assets/images/BTN.png"
   }
   playback: PLAYBACK_ONCE_FORWARD
   fps: 4
