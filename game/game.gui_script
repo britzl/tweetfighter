@@ -9,6 +9,8 @@ local MAX_VALUE = 10
 
 local START_YEAR = 2017
 local MONTHS = { "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" }
+local ONE_TERM = 12 * 4
+local TWO_TERMS = 2 * ONE_TERM
 
 local MILITARY_SUITS = { "_0044_SUIT-ARMY", "_0049_SUIT-NAVY" }
 local CIVILIAN_SUITS = { "_0045_SUIT-BEIGE", "_0046_SUIT-GRAY-3", "_0047_SUIT-GRAY-1", "_0048_SUIT-GRAY-2" }
@@ -109,7 +111,13 @@ local function new_month(self, event)
 	
 	local year = START_YEAR + math.floor((self.months - 1) / 12)
 	local month = 1 + ((self.months - 1) % 12)
-	gui.set_text(self.date, ("%s\n%d"):format(MONTHS[month], year))
+	gui.set_text(self.date_title, ("%s\n%d"):format(MONTHS[month], year))
+	progressive(self.months - 1, self.months, 1, function(v)
+		local size = vmath.vector3(self.date_bar_size)
+		size.x = size.x * (v / TWO_TERMS)
+		gui.set_size(self.date_bar, size)
+	end)
+	
 	gui.set_text(self.event_message, "")
 	gui.set_text(self.event_messenger_name, event.messenger_name)
 	gui.play_flipbook(self.event_messenger_face, event.messenger.face)
@@ -208,10 +216,10 @@ local function send_tweet(self, tweet_id, hide_id)
 					elseif self.values[4].value <= 0 then
 						monarch.show(hash("gameover"), nil, { money = true })
 					end
-				elseif self.months == (12 * 4) then
+				elseif self.months == ONE_TERM then
 					monarch.show(hash("popup"), nil, { text = "Congratulations Mr. President! You've managed to stay in office for an entire term. Can you stay another four years?" })
 					msg.post("#", "new_month")
-				elseif self.months == (12 * 4 * 4) then
+				elseif self.months == TWO_TERMS then
 					monarch.show(hash("gamewon"))
 				else
 					msg.post("#", "new_month")
@@ -270,8 +278,10 @@ function init(self)
 	self.event_message = gui.get_node("event_message")
 	self.event_messenger_name = gui.get_node("event_messenger_name")
 	self.arm = gui.get_node("arm")
-	self.date = gui.get_node("date")
-
+	self.date_title = gui.get_node("date/title")
+	self.date_bar = gui.get_node("date/bar")
+	self.date_bar_size = gui.get_size(self.date_bar)
+	
 	for i=1,2 do
 		local tweet = self.tweets[i]
 		gui.set_position(tweet.root, tweet.position + tweet.hidden)
