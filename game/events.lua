@@ -97,9 +97,9 @@ local events = {
 	},
 	{
 		messenger_type = "CIVILIAN",
-		messenger = { "Senator Ted Cruz" },
+		messenger = { "Press secretary" },
 		message = {
-			"Trump & Rubio are w/Obama on gay marriage",
+			"Sir, Senator Ted Cruz just put out a statement: \"Trump & Rubio are w/Obama on gay marriage\"",
 		},
 		tweets = {
 			{
@@ -348,6 +348,195 @@ local events = {
 	                "GREAT Discussion with China – hope to help solve the dangerous North Korea crisis. Progress being made.",
 	            },
 	            values = { 1, -1, 1, 0 },
+	        }
+	    },
+	},
+	{
+	    messenger_type = { "CIVILIAN" },
+	    messenger = { "Press secretary" },
+	    message = {
+	        "We need to send a message about the upcoming budget - what do you want to tell the press?",
+	    },
+	    tweets = {
+	        {
+	            message = {
+	                "BOMBS! We need to expand our arsenal now that Tiny Little Rocket Man is more aggressive! #Bombs",
+	            },
+	            values = { -1, 0, 0, -1 },
+	        },
+	        {
+	            message = {
+	                "SCHOOLS! We need to educate our kids NEVER to vote for Crooked Hillary and her crooked peers!",
+	            },
+	            values = { 0, 1, -1, -1 },
+	        }
+	    },
+	},
+	{
+	    messenger_type = { "MILITARY" },
+	    messenger = { "General Carter" },
+	    message = {
+	        "Sir, North Korea just placed a big sign outside of Guam with the text \"We don't like you Mr. Trump\". We interpret it as a sign of aggression. What's your move?",
+	    },
+	    tweets = {
+	        {
+	            message = {
+	                "I'm going to place a BIGGER sign saying \"Kim Jong UN is no FUN!\" – that'll teach them!",
+	            },
+	            values = { -1, 1, -1, -1 },
+	        },
+	        {
+	            message = {
+	                "When they go low, we go cry! Secretly in the Oval Office, of course",
+	            },
+	            values = { 1, 0, -1, 0 },
+	        }
+	    },
+	},
+	{
+	    messenger_type = { "MILITARY" },
+	    messenger = { "Major Twatter" },
+	    message = {
+	        "Commander – Vladimir Putin released a manly video where he's hunting bears while sitting on an even bigger bear. What do you do?",
+	    },
+	    tweets = {
+	        {
+	            message = {
+	                "I will release an even GREATER video, where I do an epic split from the backs of two polar bears! We can photoshop this, right?",
+	            },
+	            values = { 0, 1, -1, -1 },
+	        },
+	        {
+	            message = {
+	                "Evidence surfacing of Russia using BEARS in their army – I just launched the Attach Eagle Training Program first thing today! #modernarmy",
+	            },
+	            values = { 1, 1, -1, -1 },
+	        }
+	    },
+	},
+	{
+	    messenger_type = { "CIVILIAN" },
+	    messenger = { "Election strategist" },
+	    message = {
+	        "Sir, John McCain just announced he's re-running for senate. What do you say?",
+	    },
+	    tweets = {
+	        {
+	            message = {
+	                "@SenJohnMcCain should be defeated in the primaries. Graduated last in his class at Annapolis--dummy!",
+	            },
+	            values = { 0, -1, -1, 0 },
+	        },
+	        {
+	            message = {
+	                "So great that John McCain is coming back. Brave - American hero! Thank you John.",
+	            },
+	            values = { 0, 0, 1, 0 },
+	        }
+	    },
+	},
+	{
+	    messenger_type = { "CIVILIAN" },
+	    messenger = { "Press secretary" },
+	    message = {
+	        "Sir, Sarah Palin wore a \"Make America Great Again\" hat during an appearance on The Five at Fox News. Care to comment?",
+	    },
+	    tweets = {
+	        {
+	            message = {
+	                "Great to see @SarahPalinUSA back on @FoxNews. She's a wonderful woman and commentator.",
+	            },
+	            values = { 0, 1, 1, 0 },
+	        },
+	        {
+	            message = {
+	                "Sarah Palin was terrible on TheFive yesterday. Angry and Obnoxious, she will never make it on T.V. FoxNews can do so much better!",
+	            },
+	            values = { 0, -1, 0, 0 },
+	        }
+	    },
+	},
+	{
+	    messenger_type = { "MILITARY" },
+	    messenger = { "General " },
+	    message = {
+	        "Sir, Donald Trump Jr. was just caught snapchatting with Russian officials. We believe this could be a breach of security.",
+	    },
+	    tweets = {
+	        {
+	            message = {
+	                "Why is that Hillary Clintons family and Dems dealings with Russia are not looked at, but my non-dealings are? SAD!",
+	            },
+	            values = { 0, 1, -1, 0 },
+	        },
+	        {
+	            message = {
+	                "My son Donald openly gave his Snapchat history to the media & authorities whereas Crooked Hillary Clinton deleted (& acid washed) her 33,000 e-mails!",
+	            },
+	            values = { 0, 1, 1, 0 },
+	        }
+	    },
+	},
+	{
+	    messenger_type = { "CIVILIAN" },
+	    messenger = { "Press secretary" },
+	    message = {
+	        "Sir, Prince Akeem of Zamunda is planning a visit to New York. How do you want to greet his excellence?",
+	    },
+	    tweets = {
+	        {
+	            message = {
+	                "Foreign relations with African leaders are important! I will personally see that he gets his royal bath!",
+	            },
+	            values = { 1, -1, 1, 0 },
+	        },
+	        {
+	            message = {
+	                "Heading off to a well-deserved 13-day Mar-a-Lago, will set up Prince Akeem in a Brooklyn apartment!",
+	            },
+	            values = { 0, 1, -1, 0 },
+	        }
+	    },
+	},
+	{
+	    messenger_type = { "CIVILIAN" },
+	    messenger = { "Press secretary" },
+	    message = {
+	        "Sir, China are taking great measures to ensure they reduce their carbon emissions by 15% by 2020. Should we retort, or de-rail completely?",
+	    },
+	    tweets = {
+	        {
+	            message = {
+	                "The concept of global warming was created by and for the Chinese in order to make U.S. manufacturing non-competitive.",
+	            },
+	            values = { -1, 1, -1, 0 },
+	        },
+	        {
+	            message = {
+	                "Where are all the liberal environmentalists demanding the end of wind turbines to stop the slaughter of birds?",
+	            },
+	            values = { 1, 1, -1, 0 },
+	        }
+	    },
+	},
+	{
+	    messenger_type = { "CIVILIAN" },
+	    messenger = { "Press secretary" },
+	    message = {
+	        "Bette Midler has made remarks about your hair. I think we should take the high road here – what's your reply?",
+	    },
+	    tweets = {
+	        {
+	            message = {
+	                "@BetteMidler talks about my hair but I'm not allowed to talk about her ugly face or body – so I won't. Is this a double standard?",
+	            },
+	            values = { 0, 1, -1, -1 },
+	        },
+	        {
+	            message = {
+	                "While @BetteMidler is an extremely unattractive woman, I refuse to say that because I always insist on being politically correct.",
+	            },
+	            values = { 0, -1, -1, -1 },
 	        }
 	    },
 	},
