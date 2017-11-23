@@ -1,4 +1,4 @@
-script: "/gamewon/gamewon.gui_script"
+script: "/gameover/gameover.gui_script"
 fonts {
   name: "tweetfont"
   font: "/assets/fonts/tweetfont.font"

@@ -129,7 +129,7 @@ end
 
 local function is_game_over(self)
 	for i = 1, 4 do
-		if self.values[i] == 0 then
+		if self.values[i].value == 0 then
 			return true
 		end
 	end
