@@ -12,6 +12,7 @@ game_binding = /input/game.input_bindingc
 [display]
 width = 640
 height = 1136
+variable_dt = 1
 
 [script]
 shared_state = 1
@@ -60,4 +61,7 @@ app_id = B4E6479C697F3CC8
 tracking_id = UA-110129225-1
 dispatch_period = 1800
 queue_save_period = 60
+
+[html5]
+htmlfile = /index.html
 
