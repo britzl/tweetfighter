@@ -92,6 +92,7 @@ end
 
 
 local function show_tweet(self, tweet, message, duration, delay)
+	gui.play_flipbook(tweet.button, hash("BTN-TWEET"))
 	gui.set_text(tweet.comments, "-")
 	gui.set_text(tweet.retweets, "-")
 	gui.set_text(tweet.likes, "-")
@@ -206,8 +207,8 @@ local function send_tweet(self, tweet_id, hide_id)
 			hide_tweet(self, tweet, 1, 1.1)
 			hide_event(self, 1, 1, function()
 				
-				if is_game_over(self) then
-					if self.values[1].value <= 0 then
+			if is_game_over(self) then
+				if self.values[1].value <= 0 then
 						monarch.show(hash("gameover"), nil, { north_korea = true })
 					elseif self.values[2].value <= 0 then
 						monarch.show(hash("gameover"), nil, { fox_news = true })

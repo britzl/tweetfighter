@@ -11,9 +11,6 @@ images {
   image: "/assets/images/portrait1.png"
 }
 images {
-  image: "/assets/images/trump-arm.png"
-}
-images {
   image: "/assets/images/BTN-TWEET.png"
 }
 images {
@@ -238,6 +235,24 @@ images {
 images {
   image: "/assets/images/BTN.png"
 }
+images {
+  image: "/assets/images/BAR-GRAY-9SLICE.png"
+}
+images {
+  image: "/assets/images/BOTTOM-BEVEL.png"
+}
+images {
+  image: "/assets/images/EXIT-BTN.png"
+}
+images {
+  image: "/assets/images/top-hud.png"
+}
+images {
+  image: "/assets/images/arm.png"
+}
+images {
+  image: "/assets/images/CONGRATULATIONS.png"
+}
 animations {
   id: "tweet_click"
   images {
@@ -245,6 +260,12 @@ animations {
   }
   images {
     image: "/assets/images/BTN-TWEET.png"
+  }
+  images {
+    image: "/assets/images/BTN-TWEET.png"
+  }
+  images {
+    image: "/assets/images/BTN-TWEET-SENT.png"
   }
   playback: PLAYBACK_ONCE_FORWARD
   fps: 4
