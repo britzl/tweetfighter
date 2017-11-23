@@ -1,3 +1,4 @@
+local ga = require "googleanalytics.ga"
 local monarch = require "monarch.monarch"
 
 function init(self)
@@ -7,6 +8,8 @@ function init(self)
 	timer.repeating(0.5, function()
 		gui.set_enabled(arrow, not gui.is_enabled(arrow))
 	end)
+
+	ga.get_default_tracker().screenview("title")
 end
 
 function on_input(self, action_id, action)

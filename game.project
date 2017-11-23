@@ -1,6 +1,6 @@
 [project]
 title = TweetFighter
-dependencies = https://github.com/britzl/monarch/archive/1.1.zip,https://github.com/britzl/ludobits/archive/1.3.5.zip,https://github.com/britzl/defold-timer/archive/1.1.1.zip
+dependencies = https://github.com/britzl/monarch/archive/1.1.zip,https://github.com/britzl/ludobits/archive/1.3.5.zip,https://github.com/britzl/defold-timer/archive/1.1.1.zip,https://github.com/britzl/defold-googleanalytics/archive/1.3.2.zip
 
 [bootstrap]
 main_collection = /controller/controller.collectionc
@@ -54,3 +54,10 @@ package = com.britzl.defold.tweetfighter
 default_texture_min_filter = nearest
 default_texture_mag_filter = nearest
 
+[tracking]
+app_id = B4E6479C697F3CC8
+
+[googleanalytics]
+tracking_id = UA-110129225-1
+dispatch_period = 1800
+queue_save_period = 60

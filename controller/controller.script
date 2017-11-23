@@ -1,8 +1,14 @@
+local ga = require "googleanalytics.ga"
 local monarch = require "monarch.monarch"
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	msg.post("#", "start")
+	ga.get_default_tracker().enable_crash_reporting(true)
+end
+
+function update(self, dt)
+	ga.update()
 end
 
 function on_message(self, message_id, message, sender)

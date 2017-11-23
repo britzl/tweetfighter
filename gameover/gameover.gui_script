@@ -1,3 +1,4 @@
+local ga = require "googleanalytics.ga"
 local monarch = require "monarch.monarch"
 local transitions = require "monarch.transitions.gui"
 local flow = require "ludobits.m.flow"
@@ -16,14 +17,19 @@ function init(self)
 	
 	local reason = monarch.data(hash("gameover"))
 	if reason.north_korea then
+		ga.get_default_tracker().event("gameover", "reason", "NORTHKOREA")
 		gui.set_text(self.text, "Kim Jong Un heard \"Rocket Man\" one time too many, and decided to live up to the nickname by sending a nuclear warhead your way.")
 	elseif reason.fox_news then
+		ga.get_default_tracker().event("gameover", "reason", "FOXNEWS")
 		gui.set_text(self.text, "Fox News and the rest of the conservative media had enough and decided to post news which were actually true, resulting in zero trust from the people.")
 	elseif reason.sane_repubs then
+		ga.get_default_tracker().event("gameover", "reason", "SANEREPUBS")
 		gui.set_text(self.text, "The sane Republicans finally had enough, and voted for impeachment – resulting in a safer world for everyone.")
 	elseif reason.money then
+		ga.get_default_tracker().event("gameover", "reason", "USBUDGET")
 		gui.set_text(self.text, "You unfortunately lost what matters most to you – all your money – and went into a state of deep depression.")
 	end
+	ga.get_default_tracker().screenview("gameover")
 end
 
 function update(self, dt)

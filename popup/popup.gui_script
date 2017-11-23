@@ -1,3 +1,4 @@
+local ga = require "googleanalytics.ga"
 local monarch = require "monarch.monarch"
 local transitions = require "monarch.transitions.gui"
 local flow = require "ludobits.m.flow"
@@ -15,6 +16,9 @@ function init(self)
 
 	self.back = gui.get_node("back/button")
 	self.arm = gui.get_node("arm")
+
+	ga.get_default_tracker().screenview("popup")
+	ga.get_default_tracker().event("popup", "message", data.text)
 end
 
 function update(self, dt)
