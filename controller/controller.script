@@ -14,6 +14,5 @@ end
 function on_message(self, message_id, message, sender)
 	if message_id == hash("start") then
 		monarch.show(hash("title"))
-		--monarch.show(hash("gameover"), nil, { money = true })
 	end
 end
