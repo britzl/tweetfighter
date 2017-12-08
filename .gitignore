@@ -10,3 +10,6 @@ builtins
 .internal
 *.mobileprovision
 *.xcent
+repack_midas_wildcard.sh
+repack_sara_adhoc.sh
+repack_sara_store.sh
