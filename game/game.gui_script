@@ -77,7 +77,7 @@ end
 
 
 local function blink(self, node, count, interval)
-	timer.seconds(interval or 0.5, function()
+	timer.delay(interval or 0.5, false, function()
 		gui.set_enabled(node, not gui.is_enabled(node))
 		if count >= 0 then
 			blink(self, node, count - 0.5, interval)
@@ -198,7 +198,7 @@ local function send_tweet(self, tweet_id, hide_id)
 		-- play the button click animation
 		gui.play_flipbook(tweet.button, hash("tweet_click"))
 		-- wait a while and then hide tweet, count up likes, update values etc
-		timer.seconds(0.25, function()
+		timer.delay(0.25, false, function()
 			hide_tweet(self, self.tweets[hide_id], 1, 0)
 			countup(self, tweet.comments, 0, math.random(10000, 200000), 1)
 			countup(self, tweet.retweets, 0, math.random(10000, 200000), 1)

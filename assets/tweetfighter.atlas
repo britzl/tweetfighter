@@ -1,271 +1,364 @@
 images {
   image: "/assets/images/transparent1px.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/white1px.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tweet.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/portrait1.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/BTN-TWEET.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/BAR-BACK.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/BAR-BLUE-9SLICE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/BAR-RED-9SLICE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/speechBubble-back.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/topbar.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/lightgrey1px.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/BAR-GREEN-9SLICE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/bg.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/EAGLE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/LOGO.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/start.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/TEXT-BOTTOM.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/arrow.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/BG-1.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0000_HAIR-SHORT-BROWN.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0001_HAIR-SHORT-BLONDE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0002_HAIR-SHORT-WHITE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0003_HAIR-SHORT-BLACK.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0004_HAIR-SHORT-GRAY.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0005_HAIR-GUILE-BROWN.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0006_HAIR-GUILE-BLONDE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0007_HAIR-GUILE-WHITE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0008_HAIR-GUILE-BLACK.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0009_HAIR-GUILE-GRAY.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0010_HAIR-TRUMP-BROWN.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0011_HAIR-TRUMP-BLONDE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0012_HAIR-TRUMP-WHITE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0013_HAIR-TRUMP-BLACK.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0014_HAIR-TRUMP-GRAY.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0015_HAIR-BEARD-ONLY-BROWN.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0016_HAIR-BEARD-ONLY-BLONDE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0017_HAIR-BEARD-ONLY-WHITE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0018_HAIR-BEARD-ONLY-BLACK.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0019_HAIR-BEARD-ONLY-GRAY.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0020_HAIR-BEARD-BROWN.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0021_HAIR-BEARD-BLONDE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0022_HAIR-BEARD-WHITE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0023_HAIR-BEARD-BLACK.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0024_HAIR-BEARD-GRAY.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0025_HAIR-PROPER-BROWN.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0026_HAIR-PROPER-BLONDE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0027_HAIR-PROPER-WHITE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0028_HAIR-PROPER-BLACK.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0029_HAIR-PROPER-GRAY.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0030_HAIR-OLD-2-BROWN.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0031_HAIR-OLD-2-BLONDE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0032_HAIR-OLD-2-WHITE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0033_HAIR-OLD-2-BLACK.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0034_HAIR-OLD-2-GRAY.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0035_HAIR-OLD-1-BROWN.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0036_HAIR-OLD-1-BLONDE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0037_HAIR-OLD-1-WHITE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0038_HAIR-OLD-1-BLACK.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HAIR/_0039_HAIR-OLD-1-GRAY.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HEAD/_0050_FACE-4.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HEAD/_0051_FACE-3.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HEAD/_0052_FACE-2.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/HEAD/_0053_FACE-1.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/SUIT/_0044_SUIT-ARMY.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/SUIT/_0045_SUIT-BEIGE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/SUIT/_0046_SUIT-GRAY-3.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/SUIT/_0047_SUIT-GRAY-1.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/SUIT/_0048_SUIT-GRAY-2.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/SUIT/_0049_SUIT-NAVY.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/TIE/_0040_TIE-GREEN.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/TIE/_0041_TIE-BLACK.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/TIE/_0042_TIE-BLUE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/TIE/_0043_TIE-RED.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/BTN-PLAYAGAIN-1.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/BTN-PLAYAGAIN-PRESSED.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/gameover-back.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/GAME-OVER.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/BTN-PRESSED.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/BTN.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/BAR-GRAY-9SLICE.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/BOTTOM-BEVEL.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/EXIT-BTN.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/top-hud.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/arm.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/CONGRATULATIONS.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
+images {
+  image: "/assets-defold/made_with_defold/logo-hor-classic-bright-64.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 animations {
   id: "tweet_click"
   images {
     image: "/assets/images/BTN-TWEET-pressed.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
     image: "/assets/images/BTN-TWEET.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
     image: "/assets/images/BTN-TWEET.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
     image: "/assets/images/BTN-TWEET-SENT.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_ONCE_FORWARD
   fps: 4
@@ -276,9 +369,11 @@ animations {
   id: "playagain_click"
   images {
     image: "/assets/images/BTN-PLAYAGAIN-PRESSED.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
     image: "/assets/images/BTN-PLAYAGAIN-1.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_ONCE_FORWARD
   fps: 4
@@ -289,9 +384,11 @@ animations {
   id: "button_click"
   images {
     image: "/assets/images/BTN-PRESSED.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
     image: "/assets/images/BTN.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_ONCE_FORWARD
   fps: 4
