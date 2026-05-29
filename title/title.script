@@ -4,5 +4,5 @@ end
 
 function update(self, dt)
 	self.time.x = self.time.x + dt
-	sprite.set_constant("#sprite", "time", self.time)
+	go.set("#sprite", "time", self.time)
 end
